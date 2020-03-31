@@ -3,8 +3,16 @@ import styled from "styled-components";
 import Navbar from "./components/Navbar";
 import Description from "./components/Description";
 import QuerySection from "./components/QuerySection";
+import { getRegions, getNumberOfRegions, getLocations } from "./util/util";
 
-function App() {
+const App = () => {
+  const regions = getRegions();
+  const numberOfRegions = getNumberOfRegions();
+  const locations = getLocations();
+  console.log("getRegions: ", regions);
+  console.log("getNumberOfRegions: ", numberOfRegions);
+  console.log("getLocations: ", locations);
+  
   return (
     <ContentWrapper>
       <Navbar />
