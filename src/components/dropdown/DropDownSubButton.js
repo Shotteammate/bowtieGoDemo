@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import LocationList from "./LocationList";
 import { getNumberOfRegions } from "../../util/util";
 
@@ -16,7 +16,7 @@ const DropDownSubButton = ({ region, index }) => {
       <Button className={isLastBtn && !isExpanded ? "lastBtn" : ""} onClick={toggleList}>
         <Content>
           <Text>{region}</Text>
-          {isExpanded ? <AiFillCaretDown /> : <AiFillCaretUp />}
+          {isExpanded ? <FaChevronDown /> : <FaChevronUp />}
         </Content>
       </Button>
       {isExpanded && <LocationList region={region} />}

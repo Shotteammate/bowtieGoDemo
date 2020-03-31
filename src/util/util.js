@@ -1,5 +1,9 @@
 import dataSource from "../constants/dataSource.json";
 
+export const getDataSource = () => {
+  return dataSource;
+}
+
 export const getRegions = () => {
   let regions = [];
   let uniqueRegions = [];

@@ -4,7 +4,6 @@ import DropDownList from "./dropdown/DropDownList";
 import RegionsList from "../components/dropdown/RegionsList";
 
 const QuerySection = () => {
-  //TODO:
   return (
     <Container>
       <SelectionButtons>
@@ -33,7 +32,6 @@ const SelectionResult = styled.div`
 
 const ButtonContainer = styled.div`
   width: 80%;
-  margin: 0 auto;
   background-color: red;
   display: flex;
   flex-direction: column;

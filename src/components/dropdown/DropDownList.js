@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 
 const DropDownList = ({ content, regionsList }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -26,7 +26,6 @@ const DropDownList = ({ content, regionsList }) => {
 };
 const Wrapper = styled.div`
   width: 80%;
-  margin: 0 auto 20px;
 `;
 
 const Text = styled.div`
@@ -41,11 +40,11 @@ const Content = styled.div`
   align-items: center;
 `;
 
-const UpArrow = styled(AiFillCaretUp)`
+const UpArrow = styled(FaChevronUp)`
   color: #ff0168;
 `;
 
-const DownArrow = styled(AiFillCaretDown)`
+const DownArrow = styled(FaChevronDown)`
   color: #ff0168;
 `;
 
