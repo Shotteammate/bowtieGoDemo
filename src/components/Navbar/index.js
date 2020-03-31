@@ -97,6 +97,8 @@ const NavBar = styled.div`
   top:0;
   left:5%;
   width: 90%;
+  background-color: white;
+  z-index: 1;
 `;
 
 export default Navbar;
