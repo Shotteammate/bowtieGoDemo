@@ -17,7 +17,7 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1"
   },
-  "homepage": "https:/shotteammate.github.io/bowtieGoDemo",
+  "homepage": "https://shotteammate.github.io/bowtieGoDemo",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
