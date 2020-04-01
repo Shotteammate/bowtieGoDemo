@@ -103,7 +103,7 @@ const NavBar = styled.div`
   justify-content: space-between;
   max-width: 1021px;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const ContentWrapper = styled.div`
@@ -111,6 +111,7 @@ const ContentWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  background-color: white;
 `;
 
 export default Navbar;

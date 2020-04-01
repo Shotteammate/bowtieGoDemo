@@ -1,9 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { addLocation } from "../../actions/actions"
 
-const LocationItem = ({ location }) => {
+const LocationItem = ({ location, addLocation, selectedLocation }) => {
+  const addItemToStore = () => {
+    if (!selectedLocation.includes(location)) {
+      addLocation(location);
+    }
+  };
+
   return (
-    <Item>
+    <Item onClick={addItemToStore}>
       <Text>{location}</Text>
     </Item>
   );
@@ -20,6 +28,15 @@ const Item = styled.div`
   padding: 14px 0;
   max-width: 180px;
   margin: 0;
+  cursor: pointer;
 `;
 
-export default LocationItem;
+const mapStateToProps = state => ({
+  selectedLocation: state.rootReducer.selectedLocation
+});
+
+const mapDispatch = {
+  addLocation
+};
+
+export default connect(mapStateToProps, mapDispatch)(LocationItem);

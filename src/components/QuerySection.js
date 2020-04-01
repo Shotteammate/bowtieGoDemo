@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import DropDownList from "./dropdown/DropDownList";
 import RegionsList from "../components/dropdown/RegionsList";
+import SelectedTags from "../components/SelectedTags";
+import QueryResult from "../components/QueryResult";
+import { connect } from "react-redux";
 
-const QuerySection = () => {
+const QuerySection = ({ selectedLocation }) => {
+  const isEmptyTag = selectedLocation.length === 0 ? true : false;
   return (
     <Container>
       <SelectionButtons>
@@ -12,27 +16,39 @@ const QuerySection = () => {
         </ButtonContainer>
       </SelectionButtons>
       <SelectionResult>
-        <TagsContainer>tags</TagsContainer>
+        {!isEmptyTag && (
+          <TagsContainer>
+            <SelectedTags />
+          </TagsContainer>
+        )}
+        <ResultContainer>
+          <QueryResult />
+        </ResultContainer>
       </SelectionResult>
     </Container>
   );
 };
 
+const ResultContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 const TagsContainer = styled.div`
-  background-color: lightblue;
   position: sticky;
   top: 86px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: white;
 `;
 
 const SelectionResult = styled.div`
   width: 70%;
-  background-color: #d2d2d2;
-  height: 2000px;
 `;
 
 const ButtonContainer = styled.div`
   width: 80%;
-  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +57,6 @@ const ButtonContainer = styled.div`
 const SelectionButtons = styled.div`
   width: 30%;
   height: 100%;
-  background-color: pink;
   position: sticky;
   top: 86px;
 `;
@@ -49,8 +64,11 @@ const SelectionButtons = styled.div`
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  background-color: yellow;
   display: flex;
 `;
 
-export default QuerySection;
+const mapStateToProps = state => ({
+  selectedLocation: state.rootReducer.selectedLocation
+});
+
+export default connect(mapStateToProps)(QuerySection);

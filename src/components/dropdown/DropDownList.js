@@ -9,23 +9,29 @@ const DropDownList = ({ content, regionsList }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const collapseList = () => {
+    setIsExpanded(false);
+  };
+
   return (
-    <Wrapper>
-      <Button
-        className={isExpanded ? "expanded" : ""}
-        onClick={toggleDropdownList}
-      >
-        <Content>
-          <Text>{content}</Text>
-          {isExpanded ? <DownArrow /> : <UpArrow />}
-        </Content>
-      </Button>
-      {isExpanded ? regionsList : null}
+    <Wrapper tabIndex="0" onBlur={collapseList}>
+        <Button
+          className={isExpanded ? "expanded" : ""}
+          onClick={toggleDropdownList}
+        >
+          <Content>
+            <Text>{content}</Text>
+            {isExpanded ? <DownArrow /> : <UpArrow />}
+          </Content>
+        </Button>
+        {isExpanded ? regionsList : null}
     </Wrapper>
   );
 };
+
 const Wrapper = styled.div`
   width: 80%;
+  outline: none;
 `;
 
 const Text = styled.div`
